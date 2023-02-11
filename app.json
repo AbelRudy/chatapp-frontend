@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "chatapp-frontend",
-    "slug": "chatapp-frontend",
+    "name": "chatapp",
+    "slug": "chatapp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -9,7 +9,7 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#0388A7"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -23,11 +23,8 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
+        "backgroundColor": "#0388A7"
       }
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
     }
   }
 }
