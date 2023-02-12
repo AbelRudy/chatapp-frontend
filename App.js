@@ -4,8 +4,7 @@ import * as SplashScreen from "expo-splash-screen";
 import { useCallback, useEffect, useState } from "react";
 import { StyleSheet } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import Chats from "./screens/Chats";
-import User from "./screens/User";
+import TabNavigator from "./components/TabNavigator";
 
 // Keep the splash screen visible while we fetch resources
 SplashScreen.preventAutoHideAsync();
@@ -32,12 +31,8 @@ export default function App() {
 	return (
 		<SafeAreaProvider style={styles.container} onLayout={onLayout}>
 			<NavigationContainer>
-				<Stack.Navigator
-					initialRouteName="Chats"
-					screenOptions={{ headerTitleAlign: "center" }}
-				>
-					<Stack.Screen name="Chats" component={Chats} />
-					<Stack.Screen name="User" component={User} />
+				<Stack.Navigator screenOptions={{ headerShown: false }}>
+					<Stack.Screen name="Home" component={TabNavigator} />
 				</Stack.Navigator>
 			</NavigationContainer>
 		</SafeAreaProvider>
@@ -47,6 +42,5 @@ export default function App() {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: "#fff",
 	},
 });
