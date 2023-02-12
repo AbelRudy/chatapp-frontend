@@ -6,8 +6,8 @@ export default function Chats({ navigation }) {
 		<View style={styles.container}>
 			<Text>Chats here</Text>
 			<Button
-				title="Go to user Page"
-				onPress={() => navigation.navigate("User")}
+				title="Go to chat Page"
+				onPress={() => navigation.navigate("Chat")}
 			/>
 		</View>
 	);
