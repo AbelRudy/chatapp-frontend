@@ -30,7 +30,7 @@ export default function Chat() {
 			<KeyboardAvoidingView
 				style={{ flex: 1 }}
 				behavior={Platform.select({ android: undefined, ios: "padding" })}
-                keyboardVerticalOffset={100}
+				keyboardVerticalOffset={100}
 			>
 				<ImageBackground
 					source={BackgroundImage}
@@ -38,6 +38,8 @@ export default function Chat() {
 				/>
 				<View style={styles.inputContainer}>
 					<TextInput
+						multiline
+						textAlignVertical="center"
 						value={message}
 						style={styles.textBox}
 						onChangeText={onChangeText}
@@ -78,6 +80,7 @@ const styles = StyleSheet.create({
 		borderColor: Colors.lightGrey,
 		marginRight: 15,
 		paddingHorizontal: 12,
+		lineHeight: 22,
 	},
 	sendButton: {
 		backgroundColor: Colors.primary,
