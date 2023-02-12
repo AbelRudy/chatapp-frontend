@@ -1,14 +1,14 @@
 import { StyleSheet, Text, TextInput, View } from "react-native";
-import colors from "../constants/colors";
 import Colors from "../utils/Colors";
 
-export default function Input({label, keyboardType}) {
+export default function Input({ label, keyboardType, withIcon, iconName, iconSize, IconPack }) {
 	return (
 		<View style={styles.container}>
 			<Text>{label}</Text>
 
 			<View style={styles.inputContainer}>
-				<TextInput keyboardType={keyboardType}/>
+				{!!withIcon && <IconPack name={iconName} color="black" size={iconSize || 24} style={styles.icon} />}
+				<TextInput keyboardType={keyboardType} />
 			</View>
 		</View>
 	);
@@ -25,5 +25,10 @@ const styles = StyleSheet.create({
 		paddingVertical: 15,
 		borderRadius: 2,
 		backgroundColor: Colors.nearlyWhite,
+		flexDirection: "row",
+        alignItems: "center"
+	},
+	icon: {
+		marginRight: 10,
 	},
 });
