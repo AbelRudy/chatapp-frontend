@@ -1,12 +1,15 @@
+import { Entypo, FontAwesome } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
 import Chats from "../screens/Chats";
 import User from "../screens/User";
-import { FontAwesome, Entypo } from "@expo/vector-icons";
 
 const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
 
-export default function TabNavigator() {
+function TabNavigator() {
 	return (
 		<Tab.Navigator
 			initialRouteName="Chats"
@@ -33,5 +36,15 @@ export default function TabNavigator() {
 				}}
 			/>
 		</Tab.Navigator>
+	);
+}
+
+export default function AppNavigator() {
+	return (
+		<NavigationContainer>
+			<Stack.Navigator screenOptions={{ headerShown: false }}>
+				<Stack.Screen name="Home" component={TabNavigator} />
+			</Stack.Navigator>
+		</NavigationContainer>
 	);
 }
