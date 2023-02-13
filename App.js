@@ -2,6 +2,7 @@ import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
 import { useCallback, useEffect, useState } from "react";
 import { StyleSheet } from "react-native";
+import { RootSiblingParent } from "react-native-root-siblings";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import AppNavigator from "./navigation/AppNavigator";
 
@@ -21,15 +22,19 @@ export default function App() {
 	}, []);
 
 	const onLayout = useCallback(async () => {
-		if (appIsReady) await SplashScreen.hideAsync();
+		if (appIsReady) {
+			await SplashScreen.hideAsync();
+		}
 	});
 
 	if (!appIsReady) return null;
 
 	return (
 		<SafeAreaProvider style={styles.container} onLayout={onLayout}>
-			<AppNavigator />
-			<StatusBar style="dark" />
+			<RootSiblingParent>
+				<AppNavigator />
+				<StatusBar style="dark" />
+			</RootSiblingParent>
 		</SafeAreaProvider>
 	);
 }
