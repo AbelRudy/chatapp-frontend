@@ -1,14 +1,28 @@
 import { StyleSheet, Text, TextInput, View } from "react-native";
 import Colors from "../utils/Colors";
 
-export default function Input({ label, keyboardType, withIcon, iconName, iconSize, IconPack }) {
+export default function Input({
+	label,
+	keyboardType,
+	withIcon,
+	iconName,
+	iconSize,
+	IconPack,
+}) {
 	return (
 		<View style={styles.container}>
-			<Text>{label}</Text>
+			<Text style={styles.label}>{label}</Text>
 
 			<View style={styles.inputContainer}>
-				{!!withIcon && <IconPack name={iconName} color="black" size={iconSize || 24} style={styles.icon} />}
-				<TextInput keyboardType={keyboardType} />
+				{!!withIcon && (
+					<IconPack
+						name={iconName}
+						color="black"
+						size={iconSize || 24}
+						style={styles.icon}
+					/>
+				)}
+				<TextInput keyboardType={keyboardType} style={styles.textBox} />
 			</View>
 		</View>
 	);
@@ -17,7 +31,11 @@ export default function Input({ label, keyboardType, withIcon, iconName, iconSiz
 const styles = StyleSheet.create({
 	container: {
 		width: "100%",
+		marginBottom: 10,
 	},
+    label: {
+        marginVertical: 8
+    },
 	inputContainer: {
 		width: "100%",
 		backgroundColor: "red",
@@ -26,9 +44,14 @@ const styles = StyleSheet.create({
 		borderRadius: 2,
 		backgroundColor: Colors.nearlyWhite,
 		flexDirection: "row",
-        alignItems: "center"
+		alignItems: "center",
 	},
 	icon: {
 		marginRight: 10,
+	},
+	textBox: {
+		color: Colors.textColor,
+        paddingTop: 0,
+		flex: 1,
 	},
 });

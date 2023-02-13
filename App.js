@@ -1,4 +1,5 @@
 import * as SplashScreen from "expo-splash-screen";
+import { StatusBar } from "expo-status-bar";
 import { useCallback, useEffect, useState } from "react";
 import { StyleSheet } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
@@ -28,6 +29,7 @@ export default function App() {
 	return (
 		<SafeAreaProvider style={styles.container} onLayout={onLayout}>
 			<AppNavigator />
+			<StatusBar style="dark" />
 		</SafeAreaProvider>
 	);
 }
