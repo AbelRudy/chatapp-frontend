@@ -18,7 +18,7 @@ export default function LoginForm() {
 	};
 
 	return (
-		<View>
+		<>
 			<View style={styles.headerContainer}>
 				<Image
 					source={Logo}
@@ -51,7 +51,7 @@ export default function LoginForm() {
 				value={formData.password}
 				onChangeText={onChangeText}
 			/>
-		</View>
+		</>
 	);
 }
 
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
 	headerContainer: {
 		alignItems: "center",
 		height: "30%",
-		marginBottom: 60,
+		marginBottom: 10,
 	},
 	headerImage: {
 		width: "50%",

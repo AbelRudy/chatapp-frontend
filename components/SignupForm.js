@@ -14,10 +14,7 @@ export default function SignUpForm() {
 					resizeMethod="resize"
 					style={styles.headerImage}
 				/>
-				<Text style={styles.headerText}>
-					Bienvenue parmi nous. Remplissez les informations ci-dessous et créez
-					un compte
-				</Text>
+				<Text style={styles.headerText}>Bienvenue parmi nous.</Text>
 			</View>
 			<Input
 				label="Nom d'utilisateur"
@@ -38,7 +35,7 @@ export default function SignUpForm() {
 			<Input
 				label="Mot de passe"
 				keyboardType="default"
-                secureTextEntry={true}
+				secureTextEntry={true}
 				withIcon={true}
 				iconName="key"
 				iconSize={20}
@@ -52,7 +49,7 @@ const styles = StyleSheet.create({
 	headerContainer: {
 		alignItems: "center",
 		height: "30%",
-        marginBottom: 60
+		marginBottom: 10,
 	},
 	headerImage: {
 		width: "50%",
