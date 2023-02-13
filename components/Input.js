@@ -2,12 +2,16 @@ import { StyleSheet, Text, TextInput, View } from "react-native";
 import Colors from "../utils/Colors";
 
 export default function Input({
+    id,
 	label,
 	keyboardType,
 	withIcon,
 	iconName,
 	iconSize,
 	IconPack,
+	value,
+	onChangeText,
+	secureTextEntry,
 }) {
 	return (
 		<View style={styles.container}>
@@ -22,7 +26,13 @@ export default function Input({
 						style={styles.icon}
 					/>
 				)}
-				<TextInput keyboardType={keyboardType} style={styles.textBox} />
+				<TextInput
+					secureTextEntry={secureTextEntry}
+					value={value}
+					onChangeText={(text) => onChangeText(id, text)}
+					keyboardType={keyboardType}
+					style={styles.textBox}
+				/>
 			</View>
 		</View>
 	);
@@ -33,9 +43,9 @@ const styles = StyleSheet.create({
 		width: "100%",
 		marginBottom: 10,
 	},
-    label: {
-        marginVertical: 8
-    },
+	label: {
+		marginVertical: 8,
+	},
 	inputContainer: {
 		width: "100%",
 		backgroundColor: "red",
@@ -51,7 +61,7 @@ const styles = StyleSheet.create({
 	},
 	textBox: {
 		color: Colors.textColor,
-        paddingTop: 0,
+		paddingTop: 0,
 		flex: 1,
 	},
 });

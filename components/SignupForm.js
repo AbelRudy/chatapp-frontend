@@ -38,6 +38,7 @@ export default function SignUpForm() {
 			<Input
 				label="Mot de passe"
 				keyboardType="default"
+                secureTextEntry={true}
 				withIcon={true}
 				iconName="key"
 				iconSize={20}
