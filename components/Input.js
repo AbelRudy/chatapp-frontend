@@ -12,6 +12,8 @@ export default function Input({
 	value,
 	onChangeText,
 	secureTextEntry,
+	errorText,
+	onEndEditing
 }) {
 	return (
 		<View style={styles.container}>
@@ -30,10 +32,12 @@ export default function Input({
 					secureTextEntry={secureTextEntry}
 					value={value}
 					onChangeText={(text) => onChangeText(id, text)}
+					onEndEditing={(event) => onEndEditing(id, event.nativeEvent.text)}
 					keyboardType={keyboardType}
 					style={styles.textBox}
 				/>
 			</View>
+			{!!errorText && <Text style={styles.errorText}>{errorText}</Text>}
 		</View>
 	);
 }
@@ -63,4 +67,8 @@ const styles = StyleSheet.create({
 		paddingTop: 0,
 		flex: 1,
 	},
+	errorText: {
+		color: Colors.errorTextColor,
+		marginTop: 5,
+	}
 });
