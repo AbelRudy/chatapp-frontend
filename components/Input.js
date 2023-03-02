@@ -48,9 +48,8 @@ const styles = StyleSheet.create({
 	},
 	inputContainer: {
 		width: "100%",
-		backgroundColor: "red",
 		paddingHorizontal: 10,
-		paddingVertical: 15,
+		paddingVertical: 10,
 		borderRadius: 2,
 		backgroundColor: Colors.nearlyWhite,
 		flexDirection: "row",
