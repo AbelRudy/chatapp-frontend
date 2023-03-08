@@ -1,27 +1,30 @@
 import axios from "axios";
+import ShowToast from "./ShowToast";
 
 const http = axios.create({
-	baseURL: "192.168.0.47:5000/api/v1/",
+    baseURL: "http://172.20.10.4:5000/api/v1/",
 });
 
 http.interceptors.request.use(
-	(config) => {
-		if (!config.url.includes("login") && !config.url.includes("signup")) {
-			//add headers
-		}
-		return config;
-	},
-	(error) => {
-		return Promise.reject(error);
-	}
+    function (config) {
+        if (!config.url.includes("login") && !config.url.includes("signup")) {
+            //add headers
+        }
+        return config;
+    },
+    (error) => {
+        return error;
+    }
 );
 
 http.interceptors.response.use(
     (response) => {
-        return response
+        return response;
     },
     (error) => {
-        return Promise.reject(error)
+        ShowToast(error.response?.data);
+        return error;
     }
+);
 
-)
+export default http;
