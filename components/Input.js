@@ -13,7 +13,8 @@ export default function Input({
 	onChangeText,
 	secureTextEntry,
 	errorText,
-	onEndEditing
+	onEndEditing,
+	onSubmitEditing
 }) {
 	return (
 		<View style={styles.container}>
@@ -33,6 +34,7 @@ export default function Input({
 					value={value}
 					onChangeText={(text) => onChangeText(id, text)}
 					onEndEditing={(event) => onEndEditing(id, event.nativeEvent.text)}
+					onSubmitEditing={onSubmitEditing}
 					keyboardType={keyboardType}
 					style={styles.textBox}
 				/>
@@ -53,7 +55,6 @@ const styles = StyleSheet.create({
 	inputContainer: {
 		width: "100%",
 		paddingHorizontal: 10,
-		paddingVertical: 10,
 		borderRadius: 2,
 		backgroundColor: Colors.nearlyWhite,
 		flexDirection: "row",
@@ -64,7 +65,7 @@ const styles = StyleSheet.create({
 	},
 	textBox: {
 		color: Colors.textColor,
-		paddingTop: 0,
+		paddingVertical: 15,
 		flex: 1,
 	},
 	errorText: {
